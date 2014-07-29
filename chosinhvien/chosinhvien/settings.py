@@ -58,15 +58,15 @@ WSGI_APPLICATION = 'chosinhvien.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 ADMINS = (
-    ('root', 'der.kaiser94@yahoo.com'),
+    ('', ''),
 )
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dbsv',
-        'USER': 'dbsv',
-        'PASSWORD': 'ZJx.aVHjD:RwD8KU',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': '',
         'PORT': '',
     }
