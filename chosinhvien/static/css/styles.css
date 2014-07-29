@@ -1,0 +1,86 @@
+/* CSS Document */
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.clr {
+	clear: both;
+}
+
+body {
+	background-color:#C4FAB4;
+	width: 100%;
+}
+
+.top {
+	background-color:#333333;
+	width:100%;
+	height: 30px;
+	position: fixed;
+}
+
+.divider {
+	height:2px;
+	width:100%;
+	background-color:#F00;
+}
+
+.t_left {
+	height: 26px;
+	float: left;
+	margin-left:300px;
+	padding-top:4px;
+	font-weight:bold;
+	font-size:16px;
+}
+
+.t_left a{
+	color:#CCC;
+}
+
+.t_right {
+	float: right;
+	height: 26px;
+	margin-right:300px;
+	padding-top: 4px;
+	font-weight:bold;
+	font-size:16px;
+}
+
+.t_right a{
+	color:#CCC;
+}
+
+.t_right a, .t_right a:visited {
+	display: block;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	color:#CCC;
+}
+
+.t_right a:hover, .t_right a:active {
+	display: block;
+	float: left;
+	text-decoration: none;
+	text-decoration: underline;
+	color:#00F;
+}
+
+.t_left a, .t_left a:visited {
+	display: block;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	color:#CCC;
+}
+
+.t_left a:hover, .t_left a:active {
+	display: block;
+	float: left;
+	text-decoration: none;
+	text-decoration: underline;
+	color:#00F;
+}

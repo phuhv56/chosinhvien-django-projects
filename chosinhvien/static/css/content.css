@@ -1,0 +1,45 @@
+/* CSS Document */
+
+.content {
+	background:#FEF5C7;
+	width: 60%;
+	height: auto;
+	margin: auto;
+}
+
+.search {
+	width: 100%;
+	height: 45px;
+	background-color:#999;
+}
+
+.search_input {
+	height: 20px;
+	width: 300px;
+	margin: 10px 10px 10px 15px;
+}
+
+.select_product {
+	height: 24px;
+	width: 200px;
+	margin: 10px;
+}
+
+.select_provice {
+	height: 24px;
+	width: 150px;
+	margin: 10px;
+}
+
+.search_submit {
+	height: 24px;
+	width: 50px;
+	margin: 10px;
+}
+
+.list {
+    height: 800px;
+    padding-top: 20px;
+    width: 90%;
+    margin: auto;
+}

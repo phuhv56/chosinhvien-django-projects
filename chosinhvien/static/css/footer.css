@@ -1,0 +1,20 @@
+/* CSS Document */
+
+.footer {
+	width: 60%;
+	height: 60px;
+	background-color:#FEF5C7;
+	margin: auto;
+}
+
+.fo {
+    font-size:13px;
+	text-align:center;
+	padding-top: 16px;
+	color:#999;
+}
+
+hr {
+    width: 80%;
+    margin: auto;
+}

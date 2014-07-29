@@ -1,0 +1,22 @@
+/* CSS Document */
+
+.header {
+	width: 60%;
+	height: 110px;
+	margin: auto;
+	background-color:#FEF5C7;
+	margin-top: 30px;
+}
+
+.logo {
+	width: 500px;
+	height: 110px;
+	float:left;
+	background:url(../images/logo.png);
+}
+
+.user_info{
+    height: 110px;
+    width: 200px;
+    float: right;
+}

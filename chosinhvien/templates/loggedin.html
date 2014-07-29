@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+        <style>
+            a{
+	               color:#CCC;
+                    }
+            a:hover, a:active {
+                display: block;
+                float: left;
+                text-decoration: none;
+                text-decoration: underline;
+                color:#00F;
+            }
+            a, a:visited {
+                display: block;
+                float: left;
+                text-decoration: none;
+                text-align: center;
+                color:#CCC;
+            }
+        </style>
+        {% block username %}
+            <h4> Hi {{full_name}} </h4>
+            <p>Click <a href="/accounts/logout/"> Here </a> to logout</p>
+        {% endblock %}
+
+        {% block content %}
+            <h3> Chào mừng bạn quay trở lại với Chosinhvien.vn bấm vào <a href="/show/all/"> đây</a> để tiếp tục mua bán</h3>
+        {% endblock %}

@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+
+{% load humanize %}
+
+{% load static %}
+
+{% load mysite_tags %}
+
+{% block username %}
+<style xmlns="http://www.w3.org/1999/html">
+    a{
+    color:#6bb8ef;
+    }
+    a:hover, a:active {
+    display: block;
+    float: left;
+    text-decoration: none;
+    text-decoration: underline;
+    color:#6bb8ef;
+    }
+    a, a:visited {
+    display: block;
+    float: left;
+    text-decoration: none;
+    text-align: center;
+    color:#6bb8ef;
+    }
+
+    .hfour1 {
+        padding-top: 40px;
+        padding-left: 20px;
+    color: #6bb8ef;
+    }
+    .hfour2 {
+        padding-left: 20px;
+    }
+    .hfour3 {
+
+        padding-left: 20px;
+    }
+</style>
+    {% if user == "" %}
+    {% else %}
+    <h4 class="hfour1"> Hi {{user}} </h4>
+    <h4 class="hfour2"><a href="#"> Thông tin tài khoản </a> <br /></h4>
+    <h4 class="hfour3"><a href="/accounts/logout/"> Thoát </a></h4>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% if products > 0 %}
+<!---webkit-border-radius: 1em;-->
+<style>
+    .item {
+    width: 100%;
+    height: 120px;
+    float: left;
+    border: 2px solid #3B98B5;
+    margin: auto;
+    margin-bottom: 20px;
+    }
+
+    .image img {
+    width: 100px;
+    height: 100px;
+    padding: 10px 10px 10px 30px;
+    float: left;
+    }
+    .info {
+    padding-top: 10px;
+    width: 70%;
+    float: right;
+    }
+
+    .info .name{
+    width: 400px;
+    height: 20px;
+    font-size: 17px;
+    font-weight: bold;
+    }
+
+    .info .desc {
+    height: 60px;
+    width: 400px;
+    }
+
+    .info .value {
+    font-size: 16px;
+    color: #ED1C24;
+    }
+
+
+    .name a, .name a:visited {
+    display: block;
+    text-decoration: none;
+    color:#45619D;
+    }
+
+    .name a:hover, .name a:active {
+    text-decoration: underline;
+    }
+
+    .value {
+    float: left;
+    }
+    .date {
+    float: right;
+    padding-right: 5px;
+    }
+
+    .lastest a{
+    float: right;
+    padding-right: 10px;
+    font-color: #3B98B5;
+    }
+
+    .current {
+    float: right;
+    padding-right: 10px;
+    }
+
+    .older a{
+    float: right;
+    font-color: #3B98B5;
+    }
+</style>
+
+{% for product in products %}
+
+<div class="item">
+    <div class="image"> {% if product.image %} <img src="{{product.image.url}}"/> {% else %} <img
+            src="{% static 'images/logo.jpg' %}"/> {% endif %}
+    </div>
+    <div class="info">
+        <div class="name"><a href='/show/product/{{product.slug}}/'> {{product.name}} </a></div>
+        <div class="desc"><p> {{product.description|truncatewords:"30"}} </p></div>
+        <div class="bott">
+            <div class="value"> {{product.value|intcomma }}</div>
+            <div class="date">{{product.area}} {{product.time_post|age}}</div>
+            <!--  {{product.time_post|date:"d/m/y"}} {{product.time_post|naturaltime|capfirst}} -->
+        </div>
+
+    </div>
+</div>
+{% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        <div class="older">
+            {% if products.has_next %}
+            <a href="?page={{ products.next_page_number }}">Tin cũ hơn </br></a>
+            {% endif %}
+        </div>
+
+
+        <div class="current">
+            <span>
+                 {{ products.number }} / {{ products.paginator.num_pages }}
+            </span>
+        </div>
+        <div class="lastest">
+            {% if products.has_previous %}
+            <a href="?page={{ products.previous_page_number }}">Tin mới hơn </br> </a>
+            {% endif %}
+        </div>
+    </span>
+</div>
+
+{% else %}
+<h1> No products to show </h1>
+{% endif%}
+{% endblock %}
+
+{% block product_category %}
+<style>
+    .select_product {
+    height: 24px;
+    width: 200px;
+    margin: 10px;
+    }
+</style>
+<select class="select_product" \>
+{% for cate in categories %}
+<option value="">{{cate.name}}</option>
+{% endfor %}
+</select>
+{% endblock %}
+{% block provice %}
+<style>
+    .select_provice {
+    height: 24px;
+    width: 150px;
+    margin: 10px;
+    }
+</style>
+<select class="select_provice" \>
+{% for provice in provices %}
+<option value="">{{provice.name}}</option>
+{% endfor %}
+</select>
+{% endblock %}

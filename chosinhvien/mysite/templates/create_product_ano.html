@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+
+<li><a href="/show/all"> Cancel </a></li>
+
+{% endblock %}
+
+
+{% block content %}
+<!-- <style>
+    .button {
+        height: 30px;
+        width: 100px;
+        margin-left: 100px;
+        margin-top: 10px;
+    }
+    tr {
+        text-align: left;
+    }
+    .user
+</style>
+
+
+<form enctype="multipart/form-data" action="/show/create/" method="post"> {% csrf_token %}
+    <table class="product">
+        {{Pform.as_table }}
+    </table>
+    <table class="user">
+        <b>Điền đầy đủ thông tin người bán</b>
+        {{Uform.as_table }}
+    </table>
+    <input class="button" type="submit" name="submit" value="Create Product">
+</form>
+ -->
+        <h3> Cần <a href="/accounts/login/"> đăng nhập </a> để thực hiện hành động này </h3>
+        <h3> Nếu chưa có tài khoản bấm <a href="/accounts/register/"> vào đây </a> để đăng ký </h3>
+
+{% endblock %}

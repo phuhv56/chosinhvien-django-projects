@@ -1,0 +1,67 @@
+/* CSS Document */
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.clr {
+  clear: both;
+}
+
+body {
+  background-color:#C4FAB4;
+  width: 100%;
+  margin: auto;
+}
+
+.top {
+  background-color:#FEF5C7;
+  height: 110px;
+  width: 60%;
+  margin: auto;
+}
+
+.logo {
+  width: 500px;
+  height: 110px;
+  background-image:url(../images/logo.png);
+  padding-bottom: 5px;
+}
+
+
+.content {
+  background-color:#6BB8EF;
+  width: 60%;
+  height: 478px;
+  margin: auto;
+}
+
+.logo_market {
+  height: 478px;
+  width: 55%;
+  background-color:#6BB8EF;
+  float: left;
+}
+
+.login {
+  height: 478px;
+  width: 45%;
+  float: left;
+}
+
+
+.bottom {
+  background-color:#FEF5C7;
+  width: 60%;
+  height: 60px;
+  margin: auto;
+}
+  
+p {
+	font-size:13px;
+	text-align:center;
+	padding-top: 16px;
+	color:#999;
+}
+

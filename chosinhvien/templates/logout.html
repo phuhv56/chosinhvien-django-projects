@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load static %}
+{% block username %}
+<h4> Logged out</h4>
+<p> Click <a href="/accounts/login/">here</a> to login again.</p>
+{% endblock %}
+
+
+{% block content %}
+
+{% if products > 0 %}
+<!---webkit-border-radius: 1em;-->
+<style>
+    .item {
+    width: 100%;
+    height: 120px;
+    float: left;
+    border: 2px solid #3B98B5;
+    margin: auto;
+    margin-bottom: 20px;
+    }
+
+    .image img {
+    width: 80px;
+    height: 80px;
+    padding: 20px;
+    float: left;
+    }
+    .info {
+    padding-top: 10px;
+    width: 70%;
+    float: right;
+    }
+
+    .info .name{
+    width: 400px;
+    height: 20px;
+    font-size: 17px;
+    font-weight: bold;
+    }
+
+    .info .desc {
+    height: 60px;
+    width: 400px;
+    }
+
+    .info .value {
+    font-size: 16px;
+    color: #ED1C24;
+    }
+
+
+    .name a, .name a:visited {
+    display: block;
+    text-decoration: none;
+    color:#45619D;
+    }
+
+    .name a:hover, .name a:active {
+    text-decoration: underline;
+    }
+</style>
+
+{% for product in products %}
+
+<div class="item">
+    <div class="image"> {% if person.image %} <img src="{{product.image.url}}"/> {% else %} <img
+            src="{% static 'images/logo.jpg' %}"/> {% endif %}
+    </div>
+    <div class="info">
+        <div class="name"><a href='/show/product/{{product.slug}}/'> {{product.name}} </a></div>
+        <div class="desc"><p> {{product.description|truncatewords:"30"}} </p></div>
+        <div class="value"> {{product.value|intcomma }}</div>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<h1> No products to show </h1>
+{% endif%}
+{% endblock %}

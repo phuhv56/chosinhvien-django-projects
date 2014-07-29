@@ -1,0 +1,90 @@
+{% extends "base_lr.html" %}
+{% block login %}
+<style>
+    .rec {
+    width: 300px;
+    height: 350px;
+    background-color:#EFEFEF;
+    border:#333;
+    margin-top: 50px;
+    }
+
+    h2 {
+    margin-left: 50px;
+    padding-top: 20px;
+    color:#333;
+    }
+
+    h4 {
+    margin-left: 52px;
+    padding-top: 10px;
+    }
+
+    input[type=text]{
+    height: 30px;
+    width: 200px;
+    margin-top: 15px;
+    margin-left: 50px;
+    }
+
+    input[type=password]{
+    height: 30px;
+    width: 200px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    }
+
+    label{
+    font-weight: bold;
+    margin-left: 70px
+    }
+
+    .button {
+    height: 34px;
+    margin-left: 52px;
+    width: 205px;
+    }
+
+    a, a:visited {
+    text-align: center;
+    color:#333;
+    }
+
+    a:hover, a:active {
+    text-decoration: none;
+    text-decoration: underline;
+    color:#CCC;
+    }
+
+
+</style>
+<div class="rec">
+    <h2> Đăng Nhập</h2>
+
+    {% if form.errors %}
+    <p> Sorry that's not a valid username or password</p>
+    {% endif %}
+
+    <form action="/accounts/auth/" method="post"> {% csrf_token %}
+        <table>
+            <tr>
+                <td><input type="text" name="username" value="" id="username" placeholder="Email"></td>
+            </tr>
+            <tr>
+
+            </tr>
+            <tr>
+                <td><input type="password" name="password" value="" id="password" placeholder="Mật Khẩu"></td>
+            </tr>
+
+        </table>
+        <input class="button" type="submit" value="Đăng Nhập"/>
+    </form>
+
+    <h4><a href="#"> Quên mật khẩu? </a></h4>
+    <h4><a href="/accounts/register/"> Tạo tài khoản mới </a></h4>
+</div>
+{% endblock %}
+
+        {% block title %} Đăng Nhập - Chợ sinh viên {% endblock %}

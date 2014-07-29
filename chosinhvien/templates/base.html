@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title> {% block title %} Chợ của sinh viên {% endblock %}</title>
+    <link rel="shortcut icon" href="{% static 'images/logo_title' %}"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/content.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/menu.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/header.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/footer.css"/>
+</head>
+
+<body>
+<!-- TOP -->
+<div class="top">
+    <div class="t_left">
+        <a href="#"> Danh Mục Sản Phẩm </a>
+    </div>
+    <div class="t_right">
+        <a href="/show/create/"> Đăng Tin Miễn Phí </a>
+    </div>
+
+    <div class="clr"></div>
+    <img src="{% static 'images/red.png' %}" height="2px" width="100%"/>
+</div>
+
+<div class="divider">
+</div>
+<!-- TOP -->
+
+<!-- HEADER -->
+<div class="header">
+    <a href="/show/all/">
+    <div class="logo">
+    </div>
+        </a>
+    <div class="user_info">
+        {% block username %}
+        {% endblock %}
+    </div>
+</div>
+<div class="clr"></div>
+<!-- HEADER -->
+
+<!-- MENU -->
+
+<div class="menu">
+    <ul class="tab">
+        {% block sidebar %}
+        <li><a href="/show/all/"> Trang chủ</a></li>
+        <li><a href="/show/create/"> Đăng tin</a></li>
+        <li><a href=""> Sản phẩm mới</a></li>
+        <li><a href="/accounts/login/"> Đăng Nhập</a></li>
+        <li><a href="/accounts/register/"> Đăng Ký </a></li>
+        <li><a href=""> </a></li>
+        {% endblock %}
+    </ul>
+
+
+</div>
+<!-- MENU -->
+
+<!-- CONTENT -->
+<div class="content">
+
+    <div class="search">
+        <form action="/show/search/" method="post"> {% csrf_token %}
+            <input type="text" size="20" class="search_input" name="search_text" placeholder="Tìm Kiếm"/>
+            {% block product_category %}
+            <select class="select_product" name="category" id="category" \>
+            <option value=""> Tất cả các danh mục</option>
+            <option value=""> --Đồ điện từ--</option>
+            <option value=""> Laptop</option>
+            <option value=""> Máy PC</option>
+            <option value=""> Loa, Chuột, Bàn phím</option>
+            <option value=""> --Đồ khác--</option>
+            <option value="">Bếp gas</option>
+            <option value="">Bàn ghế</option>
+            <option value="">Quạt</option>
+            </select>
+            {% endblock %}
+            {% block provice %}
+            <select class="select_provice" name="provice" id="provice" \>
+            <option value=""> Hà Nội</option>
+            <option value=""> Sài Gòn</option>
+            <option value=""> Đà Nẵng</option>
+            <option value=""> Nghệ An</option>
+            <option value=""> Nha Trang</option>
+            <option value=""> Hải Phòng</option>
+            </select>
+            {% endblock %}
+            <input type="submit" size="20" class="search_submit" name="button" value="Tìm"/>
+        </form>
+    </div>
+
+    <div class="list">
+        {% block content %} {% endblock %}
+    </div>
+
+</div>
+<!-- CONTENT -->
+
+<!-- FOOTER -->
+
+<div class="footer">
+    <hr>
+    <p class="fo"> Bản quyền Công ty .... Giấy chứng nhận thành lập số .... cấp ngày .... tại .... Địa chỉ: .... Điện thoại: .... - Email: ..... <br /> Mọi thông tin xin liên lạc .....</p>
+</div>
+<!-- FOOTER -->
+</body>
+</html>

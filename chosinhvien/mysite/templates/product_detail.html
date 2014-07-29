@@ -1,0 +1,62 @@
+{% extends "base.html"%}
+
+{% load humanize %}
+
+{% block title %}
+{{ product.name }}
+{% endblock %}
+
+{% block content %}
+<style>
+    .image img {
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+    float: left;
+    }
+
+    .name {
+    padding: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    }
+
+    .desc {
+    padding: 4px;
+    }
+
+    .value {
+    font-size: 18px;
+    color: #ED1C24;
+    }
+    .info {
+    padding-top: 20px;
+    width: 70%;
+    float: right;
+    }
+
+    .name a, .name a:visited {
+    display: block;
+    text-decoration: none;
+    color:#45619D;
+    }
+
+    .name a:hover, .name a:active {
+    text-decoration: underline;
+    }
+</style>
+
+<div class="item">
+    <div class="image"><img src="{{product.image.url}}"/></div>
+    <div class="info">
+        <div class="name"><a href='/show/product/{{product.slug}}/'>{{product.name}} </a></div>
+        <div class="desc"><p>{{product.description}} </p></div>
+        <div class="value">{{product.value|intcomma}}</div>
+        <div class="time">Đăng vào ngày {{product.time_post|date:"d/m/y"}}</div>
+
+        <div> Số điện thoại liên hệ: {{user.phone}} </div>
+        <div> Người đăng sản phẩm: {{user.last_name}} {{user.first_name}} </div>
+        <div> Email: {{user.email}} </div>
+    </div>
+</div>
+{% endblock %}

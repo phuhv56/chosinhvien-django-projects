@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{% block title %} Đăng Nhập - Chợ sinh viên {% endblock %} </title>
+    <link rel="shortcut icon" href="{% static 'images/logo_title' %}"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles_login.css"/>
+</head>
+
+<body>
+	<!-- TOP -->
+	<div class="top">
+        <a href="/show/all/">
+    	<div class="logo"> 
+        </div>
+        </a>
+    </div>
+	<!-- END TOP -->    
+    
+    <!-- CONTENT -->
+    <div class="content"> 
+    
+    	<div class="logo_market">
+
+            {% block register %}
+            {% endblock %}
+
+        </div>
+        
+        <div class="login">
+
+            {% block login %}
+
+            {% endblock %}
+            
+        </div>
+    
+    </div>
+    <!-- ENDCONTENT -->
+    
+    <!-- BOTTOM -->
+    <div class="bottom"> 
+    	<p> Bản quyền Công ty .... Giấy chứng nhận thành lập số .... cấp ngày .... tại .... Địa chỉ: .... Điện thoại: .... - Email: ..... <br /> Mọi thông tin xin liên lạc .....</p>
+        
+    </div>
+    <!-- ENDBOTTOM -->
+</body>
+</html>
