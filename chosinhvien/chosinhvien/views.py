@@ -1,10 +1,11 @@
 #__author__ = 'Der Kaiser'
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib import auth
 from django.core.context_processors import csrf
 from chosinhvien.forms import UserCreationForm
-from mysite.models import Product
+from mysite.models import Product, Category, Area
 
 
 def login(request):
@@ -32,12 +33,26 @@ def loggedin(request):
     return respone
 
 def invalid(request):
-    return render_to_response('invalid_login.html')
+    c = {}
+    c.update(csrf(request))
+    return render_to_response('invalid_login.html', c)
 
 def logout(request):
     auth.logout(request)
     products = Product.objects.all().order_by('-time_post')
-    context = {'products': products}
+    category = Category.objects.all()
+    provice = Area.objects.all()
+
+    paginator = Paginator(products, 5)  # show 5 products per page
+    page = request.GET.get('page')
+
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+    context = {'products': products, 'categories': category, 'provices': provice}
 
     respone = render_to_response('logout.html', context)
     respone.set_cookie('user', '')
