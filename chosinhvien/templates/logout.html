@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "bst_base.html" %}
 
 {% load humanize %}
 
@@ -7,39 +7,7 @@
 {% load mysite_tags %}
 
 {% block username %}
-<style xmlns="http://www.w3.org/1999/html">
-    a{
-    color:#6bb8ef;
-    }
-    a:hover, a:active {
-    display: block;
-    float: left;
-    text-decoration: none;
-    text-decoration: underline;
-    color:#6bb8ef;
-    }
-    a, a:visited {
-    display: block;
-    float: left;
-    text-decoration: none;
-    text-align: center;
-    color:#6bb8ef;
-    }
-
-    .hfour1 {
-    padding-top: 40px;
-    padding-left: 20px;
-    color: #6bb8ef;
-    }
-    .hfour2 {
-    padding-left: 20px;
-    }
-    .hfour3 {
-
-    padding-left: 20px;
-    }
-</style>
-<h4 class="hfour1"> You have logged out!</h4>
+<li> <b> Bạn vừa đăng xuất </a> </b></li>
 {% endblock %}
 
 {% block content %}

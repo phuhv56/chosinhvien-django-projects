@@ -3,7 +3,7 @@
 {% block login %}
 
     <div class="col-md-12 col-xs-12 col-md-offset-0" style="">
-      <div class="col-md-6 col-md-offset-3" style=" height: 400px; margin-top: 50px;">
+      <div class="col-md-6 col-md-offset-3" style=" height: 300px; margin-top: 50px;">
 
         <h3 style="padding: 7px 0px; color: #428bca;">  <b> Đăng Nhập </b></h3>
 
@@ -20,18 +20,6 @@
               <input class="btn btn-primary" type="submit" value="Đăng Nhập" style="width: 100%;"/>
               <h6> <a href="#"> Quên mật khẩu? </a></h6>
               <h6> <a href="/accounts/register/"> Tạo tài khoản mới </a></h6>
-              <div class="col-md-12 col-md-offset-0">
-                  {% block err %}
-                    <style>
-                        .err {
-                            color: red;
-                            padding-left: 54px;
-                            padding-top: 10px;
-                        }
-                    </style>
-                    <h5 class="err"> Email hoặc mật khẩu không đúng! <br />
-                {% endblock %}
-              </div>
         </form>
       </div>
 

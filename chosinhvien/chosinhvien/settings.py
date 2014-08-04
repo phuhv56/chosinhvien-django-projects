@@ -58,15 +58,15 @@ WSGI_APPLICATION = 'chosinhvien.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 ADMINS = (
-    ('', ''),
+    ('root', 'der.kaiser94@yahoo.com'),
 )
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
+        'NAME': 'dbsv',
+        'USER': 'dbsv',
+        'PASSWORD': 'ZJx.aVHjD:RwD8KU',
         'HOST': '',
         'PORT': '',
     }
@@ -109,6 +109,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
     os.path.join(BASE_DIR, 'mysite/templates'),
+    os.path.join(BASE_DIR, 'bootstrap'),
 )
 
 ADMIN_MEDIA_PREFIX = '/admin-media/'

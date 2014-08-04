@@ -1,4 +1,4 @@
-{% extends "base_lr.html" %}
+{% extends "bst_base_lg.html" %}
 
 {% block title %}Tạo tài khoản mới - Chợ sinh viên{% endblock %}
 
@@ -15,31 +15,22 @@
 
       label {
         text-align: left;
+        margin: 5px 0;
       }
 
-      .button {
-        height: 30px;
-        width: 150px;
-        margin-left: 206px;
-        margin-top: 5px;
-      }
-
-      h1 {
+      h2 {
         padding-left: 5px;
       }
   </style>
 
 
-  <h1>Tạo tài khoản mới</h1>
+  <h2><b>Tạo tài khoản mới</b></h2>
 
   <form action="/accounts/register/" method="post"> {% csrf_token %}
       <table>
-          <tr>
-               <td> <hr width="200px"></td>
-               <td> <hr width="150px"></td>
-          </tr>
           {{ form.as_table }}
       </table>
-      <input type="submit" class="button" value="Tạo tài khoản mới">
+      <input type="submit" class="btn btn-primary" value="Tạo tài khoản mới" style="width: 100%">
   </form>
+
 {% endblock %}

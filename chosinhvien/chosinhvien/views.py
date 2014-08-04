@@ -11,7 +11,7 @@ from mysite.models import Product, Category, Area
 def login(request):
     c = {}
     c.update(csrf(request))
-    return render_to_response('login.html', c)
+    return render_to_response('bst_login.html', c)
 
 def auth_view(request):
     username = request.POST.get('username', '')

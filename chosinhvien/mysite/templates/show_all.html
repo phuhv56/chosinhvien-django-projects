@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "bst_base.html" %}
 
 {% load humanize %}
 
@@ -7,43 +7,9 @@
 {% load mysite_tags %}
 
 {% block username %}
-<style xmlns="http://www.w3.org/1999/html">
-    a{
-    color:#6bb8ef;
-    }
-    a:hover, a:active {
-    display: block;
-    float: left;
-    text-decoration: none;
-    text-decoration: underline;
-    color:#6bb8ef;
-    }
-    a, a:visited {
-    display: block;
-    float: left;
-    text-decoration: none;
-    text-align: center;
-    color:#6bb8ef;
-    }
-
-    .hfour1 {
-        padding-top: 40px;
-        padding-left: 20px;
-    color: #6bb8ef;
-    }
-    .hfour2 {
-        padding-left: 20px;
-    }
-    .hfour3 {
-
-        padding-left: 20px;
-    }
-</style>
     {% if user == "" %}
     {% else %}
-    <h4 class="hfour1"> Hi {{user}} </h4>
-    <h4 class="hfour2"><a href="#"> Thông tin tài khoản </a> <br /></h4>
-    <h4 class="hfour3"><a href="/accounts/logout/"> Thoát </a></h4>
+    <li><b> Hi {{user}} <a href="/accounts/logout/"> Logout </a> </b> </li>
     {% endif %}
 {% endblock %}
 
@@ -128,23 +94,32 @@
 
 {% for product in products %}
 
-<div class="item">
-    <div class="image"> {% if product.image %} <img src="{{product.image.url}}"/> {% else %} <img
-            src="{% static 'images/logo.jpg' %}"/> {% endif %}
+<div class="panel panel-default">
+    <div class="panel-body">
+    <div class="col-md-1 col-xs-12">
+        <div class="image"> {% if product.image %} <img src="{{product.image.url}}"/> {% else %} <img
+                src="{% static 'images/logo.jpg' %}"/> {% endif %}
+        </div>
     </div>
-    <div class="info">
+    <div class="col-md-11 col-xs-12" style="width: 90%; padding-left: 70px;">
+        <div class="col-md-12 col-xs-12">
         <div class="name"><a href='/show/product/{{product.slug}}/'> {{product.name}} </a></div>
-        <div class="desc"><p> {{product.description|truncatewords:"30"}} </p></div>
-        <div class="bott">
+            </div>
+        <div class="col-md-12 col-xs-12">
+        <p> {{product.description|truncatewords:"30"}} </p>
+            </div>
+        <div class="col-md-12 col-xs-12">
+        <div class="">
             <div class="value"> {{product.value|intcomma }}</div>
             <div class="date">{{product.area}} {{product.time_post|age}}</div>
             <!--  {{product.time_post|date:"d/m/y"}} {{product.time_post|naturaltime|capfirst}} -->
-        </div>
-
+            </div>
+    </div>
+    </div>
     </div>
 </div>
 {% endfor %}
-<div class="pagination">
+<div class="pagination" style="float: right;">
     <span class="step-links">
         <div class="older">
             {% if products.has_next %}
@@ -172,30 +147,28 @@
 {% endblock %}
 
 {% block product_category %}
-<style>
-    .select_product {
-    height: 24px;
-    width: 200px;
-    margin: 10px;
-    }
-</style>
-<select class="select_product" \>
+
+<!-- Bootstrap -->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/bootstrap-theme.min.css" rel="stylesheet">
+
+<select class="form-control" style="height: 30px;">
 {% for cate in categories %}
-<option value="">{{cate.name}}</option>
+    <optgroup label="">
+        <option value="">{{cate.name}}</option>
+    </optgroup>
 {% endfor %}
 </select>
 {% endblock %}
 {% block provice %}
-<style>
-    .select_provice {
-    height: 24px;
-    width: 150px;
-    margin: 10px;
-    }
-</style>
-<select class="select_provice" \>
+<!-- Bootstrap -->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/bootstrap-theme.min.css" rel="stylesheet">
+<select class="form-control" style="height: 30px;>
 {% for provice in provices %}
-<option value="">{{provice.name}}</option>
+    <optgroup label="" >
+        <option value="">{{provice.name}}</option>
+    </optgroup>
 {% endfor %}
 </select>
 {% endblock %}

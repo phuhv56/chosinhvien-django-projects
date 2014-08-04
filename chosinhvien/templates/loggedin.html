@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "bst_base.html" %}
         <style>
             a{
 	               color:#CCC;
@@ -19,8 +19,7 @@
             }
         </style>
         {% block username %}
-            <h4> Hi {{full_name}} </h4>
-            <p>Click <a href="/accounts/logout/"> Here </a> to logout</p>
+            <li> <b>Hi {{full_name}} <a href="/accounts/logout/"> logout </a> </b></li>
         {% endblock %}
 
         {% block content %}
