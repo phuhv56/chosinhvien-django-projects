@@ -1,138 +1,284 @@
 {% load static %}
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}Trang chủ - Chợ sinh viên {% endblock %}</title>
-  <link rel="shortcut icon" href="{% static 'images/logo_title' %}"/>
-  <!-- Bootstrap -->
-  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/static/css/bootstrap-theme.min.css" rel="stylesheet">
-  
-  <style>
-  body {
-    padding: 55px 0 0 0;
-    background-color: #D0E6FD;
-  }
-  </style>
+	<title>{% block title %} {% endblock %}</title>
+<!--
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/non-responsive.css">
+-->
+    <link rel="shortcut icon" href="{% static 'images/logo_title' %}"/>
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/non-responsive.css">
+	<style>
+		body {
+			background-color: #D0E6FD;
+		}
+	</style>
 </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          
-        </button>
-        <a class="navbar-brand" href="/show/all/" >Chợ sinh viên </a>
-      </div>
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="height: 20px;">
+		<div class="container">
+			<!-- Navbar header-->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
+				</button>
+				<a class="navbar-brand" href="#" style="color: #84ADEC;">Chợ sinh viên </a>
+			</div>
+			<!-- End navbar header-->
 
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Danh Mục Sản Phẩm</b> <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right" style="padding-right: 170px;">
-          <li><a href="/show/create/"><b>Đăng Tin Miễn Phí</b></a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
 
-  <div class="container" >
-    <div class="col-md-8 col-xs-12 col-md-offset-2" style="border: 2px solid #A9B7F5; height: 1030px; background-color: #F0F0EE;">
-      <div class="col-md-12 col-xs-12 col-md-offset-0">
-          <a href="/show/all/"><img src="{% static 'images/logo.png' %}" class="img-responsive" alt="Responsive image"></a>
-      </div>
+			<!-- content of navbar -->
 
-        <div class="col-md-12 col-xs-12 col-md-offset-0">
-          <ul class="nav nav-pills">
-            {% block sidebar %}
-            <div class="col-md-2 col-xs-6 col-md-offset-0"> <li><a href="/show/all/"><b>Trang chủ</b></a></li> </div>
-            <div class="col-md-3 col-xs-6 col-md-offset-0"> <li><a href=""><b>Sản phẩm mới</b></a></li> </div>
-            <div class="col-md-2 col-xs-6 col-md-offset-0"> <li><a href="/accounts/login/"><b>Đăng nhập</b></a></li> </div>
-            <div class="col-md-2 col-xs-6 col-md-offset-0"> <li><a href="/accounts/register/"><b>Đăng ký</b></a></li> </div>
-            <div class="user_info"> {% block username %} {% endblock %} </div>
-            {% endblock %}
-          </ul>
-        </div>
-        <div class="divider-vertical"></div>
-        <div class="col-md-12 col-xs-12 col-md-offset-0" style="background-color: #428bca; -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; margin-top: 5px;">
-          <form class="navbar-form navbar-left" role="search">
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
 
-            <div class="col-md-4 col-xs-12 ">
-              <div class="form-group" >
-                <input type="text" class="form-control" placeholder="Tìm kiếm" style="height: 30px;" >
-              </div> 
-            </div>
-            <div class="col-md-4 col-xs-12">
-              {% block product_category %}
-              <select class="form-control" style="height: 30px;">
-              <option value=""> Tất cả các danh mục </option>
-              <optgroup label="Đồ điện tử">
-                <option value=""> Laptop </option>
-                <option value=""> Điện thoại </option>
-              </optgroup>
-            </select>
-            {% endblock %}
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #84ADEC;"><b>Danh Mục Sản Phẩm</b> <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
 
-          </div>
-            <div class="col-md-3 col-xs-12">
-              {% block provice %}
-              <select class="form-control" style="height: 30px;">
-                <optgroup>
-                <option value=""> Khu vực</option>
-                </optgroup>
-              </select>
-              {% endblock %}
-            </div>
-            <div class="col-md-1 col-md-offset-0 col-xs-12">
-              <button type="submit" class="btn btn-default" style="height: 30px;">Tìm</button> 
-            </div>
-          </form>
-        </div>
-        
-        <!--<div class="col-md-12" style="margin-top: 5px; ">
-          <ul class="nav nav-tabs" role="tablist">
-            <li class="active"><a href="#">Tất cả</a></li>
-            <li><a href="#">Cá nhân</a></li>
-            <li><a href="#">Công ty</a></li>
-          </ul>
-        </div>-->
-        <div class="col-md-12" style="margin-top: ">
-            &nbsp;
-        </div>
-        <div class="col-md-12" style="height: 500px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px;">
-          {% block content %} {% endblock %}
-        </div>
+
+								{% block category_navbar %}
+								{% endblock %}
+							<!--
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Separated link</a></li>
+							<li class="divider"></li>
+							<li><a href="#">One more separated link</a></li>
+							-->
+						</ul>
+					</li>
+				</ul>
+
+				<!-- user -->
+				<ul class="nav navbar-nav navbar-right">
+
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #84ADEC;"><b>{% block username %} Tài khoản  {% endblock %}</b> <span class="glyphicon glyphicon-user" style="margin-left: 5px;"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li> <a href="#">Thông tin tài khoản </a> </li>
+							<li class="divider"></li>
+							<li> <a href="/accounts/logout">Thoát</a> </li>
+						</ul>
+					</li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#" style="color: #84ADEC;"><b>Đăng Tin Miễn Phí</b></a></li>
+				</ul>
+
+			</div>
+
+			<!-- end content of navbar-->
+		</div>
+	</div>
+	<!-- End fixed navbar -->
+	
+	<!-- Container -->
+
+	<div class="container">
+
+		<div class="col-xs-10 col-xs-offset-1" style="border: 2px solid #A9B7F5; height: 1100px; background-color: #F0F0EE;">
+
+			<!-- logo -->
+			<div class="row">
+				<div class="col-xs-8">
+					<a href="/show/all/"><img src="{% static 'images/logo.png' %}" class="img-responsive" alt="Responsive image"></a>
+				</div>
+			</div>	
+			<!-- end logo -->
+			<!-- menu bar-->
+
+			<div class="col-xs-12" style="padding: 6px 0;">
+				<ul class="nav nav-pills" >
+					<div class="col-xs-2"> <li><a href="/show/all/"><b>Trang chủ</b></a></li> </div>
+					<div class="col-xs-3 col-xs-pull-1" style="padding-left: 40px;"> <li><a href="#"><b>Sản phẩm mới</b></a></li> </div>
+					<div class="col-xs-2 col-xs-pull-2" style="padding-left: 33px;"> <li><a href="/accounts/login/"><b>Đăng nhập</b></a></li> </div>
+					<div class="col-xs-2 col-xs-pull-2" style="padding-left: 0px;"> <li><a href="/accounts/register/"><b>Đăng ký</b></a></li> </div>
+				</ul>
+			</div>
+
+			<!-- end menu bar-->
 
 
 
-    </div>
-    <!-- /.container --> 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script> 
-    <!-- Include all compiled plugins (below), or include individual files as needed --> 
-    <script src="js/bootstrap.min.js" type="text/javascript"></script>
-  </div>
+			<!-- search bar -->			
+			<div class="col-xs-12" style="background-color: #428bca; -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; margin-top: 5px;">
+				<div class="col-xs-3" style="margin-top: 8px; margin-bottom: -8px;">
+					<div class="form-group" >
+						<input type="text" class="form-control" placeholder="Tìm kiếm">
+					</div> 
+				</div>
+				<div class="col-xs-3" style="margin-top: 8px; margin-bottom: -8px;">
+					<select class="form-control" style="width: 200px">
+						<option style="background-color:#dcdcc3; font-weight: bold;" value="2000">-- Tất cả các danh mục --</option>
+
+						{% block product_category %}
+
+						<option style="background-color:#dcdcc3; font-weight: bold;" value="2000">-- Xe cộ --</option>
+
+
+						<option value="2010">Ô tô</option>
+
+						<option value="2020">Xe máy</option>
+
+						<option value="2030">Phụ tùng và Phụ kiện</option>
+
+						<option value="2050">Các loại xe khác</option>
+
+						<option style="background-color:#dcdcc3; font-weight: bold;" value="1000">-- Bất động sản --</option>
+
+
+						<option value="1010">Căn hộ/Chung cư</option>
+
+						<option value="1020">Nhà &amp; Đất ở</option>
+
+						<option value="1030">Cơ sở thương mại</option>
+
+						<option value="1040">Đất nông nghiệp &amp; trang trại</option>
+
+						<option value="1050">Phòng cho thuê</option>
+
+						<option style="background-color:#dcdcc3; font-weight: bold;" value="5000">-- Đồ điện tử --</option>
+
+
+						<option value="5010">Điện thoại và thiết bị di động</option>
+
+						<option value="5020">TV / Audio / Video / Camera</option>
+
+						<option value="5030">Máy tính và Phụ kiện</option>
+
+						<option style="background-color:#dcdcc3; font-weight: bold;" value="3000">-- Nhà cửa &amp; Vật dụng cá nhân --</option>
+
+
+						<option value="3020">Đồ gia dụng &amp; sân vườn</option>
+
+						<option value="3040">Đồng hồ/Trang sức</option>
+
+						<option value="3030">Quần áo</option>
+
+						<option value="3010">Đồ trẻ em</option>
+
+						<option style="background-color:#dcdcc3; font-weight: bold;" value="4000">-- Giải trí/ Thể thao/Sở thích --</option>
+
+
+						<option value="4020">Thể thao &amp; Hoạt động ngoài trời</option>
+
+						<option value="4010">Sở thích &amp; Sưu tầm</option>
+
+						<option value="4040">Âm nhạc/Phim/Sách</option>
+
+						<option value="4030">Vật nuôi</option>
+
+						<option style="background-color:#dcdcc3; font-weight: bold;" value="8000">-- Cơ hội kinh doanh --</option>
+
+
+						<option value="8010">Dụng cụ chuyên dụng/Đồ dùng văn phòng</option>
+
+						<option value="8020">Mua &amp; sang nhượng doanh nghiệp</option>
+
+						<option style="background-color:#dcdcc3; font-weight: bold;" value="6000">-- Việc làm &amp; Dịch vụ --</option>
+
+
+						<option value="6010">Việc làm</option>
+
+						<option value="6020">Dịch vụ</option>
+
+						<option style="background-color:#dcdcc3; font-weight: bold;" value="9000">-- Du lịch --</option>
+
+
+						<option value="9010">Phòng khách sạn</option>
+
+						<option value="9020">Du lịch nước ngoài/trong nước</option>
+
+						<option style="background-color:#dcdcc3; font-weight: bold;" value="7000">-- Các loại khác --</option>
+
+
+						<option value="7010">Các loại khác</option>
+
+                        {% endblock %}
+					</select> 
+				</div>
+
+				<div class="col-xs-2 col-xs-offset-1" style="margin-top: 8px; margin-bottom: -8px;">
+					<select class="form-control" style="width: 200px">
+						<option style="background-color:#dcdcc3;" value="0">-- KHU VỰC --</option>
+
+                        {% block provice %}
+
+						<option value="1"> Hà Nội</option>
+
+						<option value="2">Các vùng xung quanh</option>
+						<option value="3">Toàn quốc</option>
+						<option style="background-color:#dcdcc3;" value="0">-- CÁC VÙNG KHÁC --</option>
+
+						<option value="113"> Tp Hồ Chí Minh</option>
+
+						<option value="110"> Đông Bắc Bộ</option>
+
+						<option value="111"> Tây Bắc Bộ</option>
+
+						<option value="101"> Các tỉnh lân cận Hà Nội</option>
+
+						<option value="104"> Hải Phòng Nam Định Thái Bình</option>
+
+						<option value="108"> Thanh Nghệ Tĩnh</option>
+
+						<option value="106"> Bình Trị Thừa Thiên Huế</option>
+
+						<option value="103"> Quảng Nam Đà Nẵng</option>
+
+						<option value="109"> Tây Nguyên</option>
+
+						<option value="107"> Nam Trung Bộ</option>
+
+						<option value="102"> Đông Nam Bộ</option>
+
+						<option value="105"> Cần Thơ - Tây Nam Bộ</option>
+                        {% endblock %}
+					</select> 
+				</div>
+
+				<div class="col-xs-1" style="margin-top: 8px; margin-bottom: -8px;">
+					<button type="submit" class="btn btn-default" style="margin-left: 100px;">Tìm</button> 
+				</div>
+			</div>
+			<!-- end search bar -->	
+
+
+			<!-- content  -->		
+
+			<div class="col-xs-12" style="height: 775px; margin-top: 24px;">
+					{% block content %}
+					{% endblock %}
+			</div>
+
+			<!-- end content  -->		
+		</div>
+	</div>	
+
+	<!-- End container -->
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+	<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script> -->
+	<!-- Include all compiled plugins (below), or include individual files as needed
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>-->
+
+    	<script src="/static/js/jquery-1.11.1.min.js" type="text/javascript"></script> 
+    	<script src="/static/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>

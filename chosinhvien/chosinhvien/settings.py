@@ -64,9 +64,9 @@ ADMINS = (
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dbsv',
-        'USER': 'dbsv',
-        'PASSWORD': 'ZJx.aVHjD:RwD8KU',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': '',
         'PORT': '',
     }

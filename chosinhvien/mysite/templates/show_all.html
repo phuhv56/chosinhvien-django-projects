@@ -8,8 +8,9 @@
 
 {% block username %}
     {% if user == "" %}
+        Tài khoản
     {% else %}
-    <li><b> Hi {{user}} <a href="/accounts/logout/"> Logout </a> </b> </li>
+    {{user}}
     {% endif %}
 {% endblock %}
 
@@ -149,26 +150,21 @@
 {% block product_category %}
 
 <!-- Bootstrap -->
-  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/static/css/bootstrap-theme.min.css" rel="stylesheet">
-
-<select class="form-control" style="height: 30px;">
 {% for cate in categories %}
-    <optgroup label="">
-        <option value="">{{cate.name}}</option>
-    </optgroup>
+        <option> {{cate.name}} </option>
 {% endfor %}
-</select>
 {% endblock %}
+
 {% block provice %}
 <!-- Bootstrap -->
-  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/static/css/bootstrap-theme.min.css" rel="stylesheet">
-<select class="form-control" style="height: 30px;>
 {% for provice in provices %}
-    <optgroup label="" >
-        <option value="">{{provice.name}}</option>
-    </optgroup>
+        <option> {{provice.name}} </option>
 {% endfor %}
-</select>
+{% endblock %}
+
+{% block category_navbar %}
+
+        {% for cate in categories %}
+                <li><a href="#">{{cate.name}}</a></li>
+        {% endfor %}
 {% endblock %}
